@@ -10,6 +10,11 @@ docker build -t didservice -f Dockerfile .
 ```bash
 docker run --name=didservice -p 5000:5000 didservice
 ```
+### Start and Stop Container
+```bash
+docker start didservice
+docker stop didservice
+```
 
 ## RESTfull APIs
 ### add did
