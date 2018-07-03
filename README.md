@@ -1,6 +1,16 @@
 # MVS DID service
 MVS service for exchanger to store registration of DID.
 
+## Build Image And Run Container
+### Build Image
+```bash
+docker build -t didservice -f Dockerfile .
+```
+### Run Container
+```bash
+docker run --name=didservice -p 5000:5000 didservice
+```
+
 ## RESTfull APIs
 ### add did
 http method: `POST` with parameters {exchanger, customer, did, address}
