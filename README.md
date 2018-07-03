@@ -1,5 +1,5 @@
 # MVS DID service
-MVS service for exchanger to store registation of DID.
+MVS service for exchanger to store registration of DID.
 
 ## RESTfull APIs
 ### adddid
