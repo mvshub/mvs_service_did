@@ -7,7 +7,6 @@
 # sudo pip3 install flask-sqlalchemy
 # sudo pip3 install sqlalchemy-utils
 
-import json
 from flask import Flask, abort, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import sqlalchemy_utils
@@ -46,10 +45,6 @@ class Did(db.Model):
 
     def __repr__(self):
         return '<Did %r>' % self.did
-
-class ObjectEncoder(json.JSONEncoder):
-    def default(self, o):
-        return o.__dict__
 
 class JsonDid:
     def __init__(self, exchanger, customer, did, address):
@@ -105,7 +100,7 @@ def set_did():
         db.session.commit()
 
         jsonDid = JsonDid(target.exchanger, target.customer, target.did, target.address)
-        return jsonify({"error" : code_success, "result" : json.dumps(jsonDid, cls=ObjectEncoder)})
+        return jsonify({"error" : code_success, "result" : jsonDid.as_dict()})
 
 
 # curl -i -X GET 'http://127.0.0.1:5000/mvs/api/v1/did/rightbtc/kesalin'
@@ -118,7 +113,7 @@ def get_did(exchanger, customer, methods=['GET']):
     did = Did.query.filter_by(exchanger=exchanger, customer=customer).first()
     if did:
         jsonDid = JsonDid(did.exchanger, did.customer, did.did, did.address)
-        return jsonify({'code' : code_success, 'result': json.dumps(jsonDid, cls=ObjectEncoder)})
+        return jsonify({'code' : code_success, 'result': jsonDid.as_dict()})
     else:
         return jsonify({'code' : code_not_found, 'result': 'not found'})
 
@@ -138,7 +133,7 @@ def delete_did(exchanger, customer):
 
         did = dids[0]
         jsonDid = JsonDid(did.exchanger, did.customer, did.did, did.address)
-        return jsonify({'code' : code_success, 'result': json.dumps(jsonDid, cls=ObjectEncoder)})
+        return jsonify({'code' : code_success, 'result': jsonDid.as_dict()})
     else:
         return jsonify({'code' : code_not_found, 'result': 'not found'})
 

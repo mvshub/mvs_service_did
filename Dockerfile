@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN apt-get update -y
 RUN apt-get install -y python3-pip python3.5
-RUN apt-get install -y sqlite3 libsqlite3-dev
+RUN apt-get install -y sqlite3
 
 COPY . /server
 WORKDIR /server
