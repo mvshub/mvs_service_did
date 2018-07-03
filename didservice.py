@@ -99,7 +99,7 @@ def set_did():
         db.session.commit()
 
         jsonDid = JsonDid(target.exchanger, target.customer, target.did, target.address)
-        return jsonify({"error" : code_success, "result" : jsonDid.as_dict()})
+        return jsonify({'error' : code_success, 'result' : jsonDid.as_dict()})
 
 
 # curl -i -X GET 'http://127.0.0.1:5000/mvs/api/v1/did/rightbtc/kesalin'
