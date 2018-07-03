@@ -63,7 +63,7 @@ def is_valid(param, max_length):
 
 @app.route('/')
 def root():
-    return jsonify({'code' : code_success, result: "MVS service"})
+    return jsonify({'code' : code_success, 'result' : "MVS service"})
 
 @app.errorhandler(404)
 def not_found(error):
@@ -141,4 +141,4 @@ if __name__ == "__main__":
     if not sqlalchemy_utils.functions.database_exists(database_uri):
         db.create_all()
 
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
