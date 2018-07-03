@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# sudo apt-get install sqlite3 libsqlite3-dev
+# sudo apt-get install sqlite3
 # sudo pip3 install flask
-# sudo pip3 install flask-restful
 # sudo pip3 install flask-sqlalchemy
 # sudo pip3 install sqlalchemy-utils
 
@@ -78,7 +77,7 @@ def set_did():
         or 'did' not in request.json
         or 'address' not in request.json):
         print("invalid request json! {}".format(request.json))
-        return jsonify({'error' : code_invalid_parameter, 'result' : 'invalid paremeter!'})
+        return jsonify({'code' : code_invalid_parameter, 'result' : 'invalid paremeter!'})
 
     exchanger = request.json['exchanger']
     customer = request.json['customer']
@@ -93,7 +92,7 @@ def set_did():
 
     target = Did.query.filter_by(exchanger = exchanger, customer=customer).first()
     if target:
-        return jsonify({'error' : code_already_exist, 'result' : 'already exist!'})
+        return jsonify({'code' : code_already_exist, 'result' : 'already exist!'})
     else:
         target = Did(exchanger, customer, did, address)
         db.session.add(target)
