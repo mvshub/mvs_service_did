@@ -3,9 +3,9 @@ MVS service for exchanger to store registration of DID.
 
 ## RESTfull APIs
 ### add did
-http method: `POST`:
+http method: `POST` with parameters {exchanger, customer, did, address}
 ```
-http://hostname:port/mvs/api/v1/did/{exchanger}/{customer}/{did}/{address}
+http://hostname:port/mvs/api/v1/did
 ```
 Excample:  
 Request:
