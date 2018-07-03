@@ -2,15 +2,15 @@
 MVS service for exchanger to store registration of DID.
 
 ## RESTfull APIs
-### adddid
-adddid:
+### add did
+http method: `POST`:
 ```
-http://127.0.0.1:5000/adddid/{exchanger}/{customer}/{did}/{address}
+http://hostname:port/mvs/api/v1/did/{exchanger}/{customer}/{did}/{address}
 ```
-Excample:  
+Excample:
 Request:
 ```
-http://127.0.0.1:5000/adddid/rightbtc/kesalin/kesalin/MTqgx7CHA8y1TUF1re5NLyT4mzKvCxWTyi
+curl -i -X POST 'http://127.0.0.1:5000/mvs/api/v1/did' -H "Content-Type: application/json" -d '{"exchanger": "rightbtc", "customer": "kesalin", "did": "kesalin", "address": "MTrW3QK8mjmTYSozdkLa7k9hyCExUBWYwP"}'
 ```
 Response:
 ```json
@@ -20,14 +20,14 @@ Response:
 }
 ```
 ### get did
-getdid:
+http method: `GET`:
 ```
-http://127.0.0.1:5000/getdid/{exchanger}/{customer}
+http://hostname:port/mvs/api/v1/did/{exchanger}/{customer}
 ```
-Excample:  
+Excample:
 Request:
 ```
-http://127.0.0.1:5000/getdid/rightbtc/kesalin
+curl -i -X GET 'http://127.0.0.1:5000/mvs/api/v1/did/rightbtc/kesalin'
 ```
 Response:
 ```json
@@ -38,14 +38,14 @@ Response:
 ```
 
 ### delete did
-deletedid:
+http method: `DELETE`:
 ```
-http://127.0.0.1:5000/deletedid/{exchanger}/{customer}
+http://hostname:port/mvs/api/v1/did/{exchanger}/{customer}
 ```
-Excample:  
+Excample:
 Request:
 ```
-http://127.0.0.1:5000/deletedid/rightbtc/kesalin
+curl -i -X DELETE 'http://127.0.0.1:5000/mvs/api/v1/did/rightbtc/kesalin'
 ```
 Response:
 ```json
@@ -56,7 +56,7 @@ Response:
 ```
 
 ## Response Codes
-> 0 : success  
-> 1 : invalid parameter  
-> 2 : not found  
-> 3 : already exist  
+> 0 : success
+> 1 : invalid parameter
+> 2 : not found
+> 3 : already exist
