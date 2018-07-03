@@ -7,7 +7,7 @@ adddid:
 ```
 http://127.0.0.1:5000/adddid/{exchanger}/{customer}/{did}/{address}
 ```
-Excample:
+Excample:  
 Request:
 ```
 http://127.0.0.1:5000/adddid/rightbtc/kesalin/kesalin/MTqgx7CHA8y1TUF1re5NLyT4mzKvCxWTyi
@@ -24,7 +24,7 @@ getdid:
 ```
 http://127.0.0.1:5000/getdid/{exchanger}/{customer}
 ```
-Excample:
+Excample:  
 Request:
 ```
 http://127.0.0.1:5000/getdid/rightbtc/kesalin
@@ -42,7 +42,7 @@ deletedid:
 ```
 http://127.0.0.1:5000/deletedid/{exchanger}/{customer}
 ```
-Excample:
+Excample:  
 Request:
 ```
 http://127.0.0.1:5000/deletedid/rightbtc/kesalin
@@ -56,7 +56,7 @@ Response:
 ```
 
 ## Response Codes
-> 0 : success
-> 1 : invalid parameter
-> 2 : not found
-> 3 : already exist
+> 0 : success  
+> 1 : invalid parameter  
+> 2 : not found  
+> 3 : already exist  
