@@ -1,16 +1,23 @@
 # MVS DID service
 MVS service for exchanger to store registration of DID.
 
-## Build Image And Run Container
-### Build Image
+## Pull Image from Docker Hub
+URL: <https://hub.docker.com/r/jowenshaw/didservice/>
+```bash
+docker pull jowenshaw/didservice
+```
+
+## Build Image From Dockerfile
 ```bash
 docker build -t didservice -f Dockerfile .
 ```
-### Run Container
+
+## Run Container
 ```bash
 docker run --name=didservice -p 5000:5000 didservice
 ```
-### Start and Stop Container
+
+## Start and Stop Container
 ```bash
 docker start didservice
 docker stop didservice
